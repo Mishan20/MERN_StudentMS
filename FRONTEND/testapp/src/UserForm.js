@@ -12,7 +12,10 @@ const UserForm = (props) => {
       }}
     >
       <Grid item xs={12}>
-        <Typography component={"h1"} sx={{ color: "#000000" }}>
+        <Typography
+          component={"h1"}
+          sx={{ color: "#000000", fontSize: "20px", fontWeight: "bold" }}
+        >
           User Form
         </Typography>
       </Grid>
@@ -25,7 +28,7 @@ const UserForm = (props) => {
             color: "#000000",
             marginRight: "20px",
             fontSize: "16px",
-            width: "10px",
+            width: "100px",
             display: "block",
           }}
         >
@@ -49,7 +52,7 @@ const UserForm = (props) => {
             color: "#000000",
             marginRight: "20px",
             fontSize: "16px",
-            width: "10px",
+            width: "100px",
             display: "block",
           }}
         >
@@ -59,7 +62,7 @@ const UserForm = (props) => {
           type="text"
           id="name"
           name="name"
-          sx={{ width: "400px" }}
+          sx={{ width: "400px"}}
           value={""}
           onChange={(e) => {}}
         />
@@ -67,18 +70,18 @@ const UserForm = (props) => {
 
       <Button
         sx={{
+          width: "30%",
           margin: "auto",
           marginBottom: "20px",
           backgroundColor: "#00c6e6",
           color: "#000000",
           marginLeft: "15px",
           marginTop: "20px",
-          '&:hover': {
-            opacity: '0.7',
+          "&:hover": {
+            opacity: "0.7",
             backgroundColor: "#00c6e6",
-          }
+          },
         }}
-
       >
         Add
       </Button>
