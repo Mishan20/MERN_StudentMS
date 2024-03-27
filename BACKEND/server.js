@@ -1,29 +1,25 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const nodemon = require("nodemon");
+const express = require('express');
 const app = express();
-
-dotenv.config();
-const PORT = process.env.PORT || 8070;
+const cors = require('cors');
+const port = 3001;
+const host = 'localhost';
+const mongoose = require('mongoose');
 
 app.use(cors());
-app.use(express.json()); // Using express.json() for JSON parsing
+app.use(express.json());
 
-const URL = process.env.MONGODB_URL;
+const uri = 'mongodb+srv://senanayakaishan2:0xE4FfyGe57v8CyA@student-db1.4itqv4p.mongodb.net/?retryWrites=true&w=majority&appName=student-db1'
 
-mongoose.connect(URL, {
-//   useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-//   useFindAndModify: false,
-});
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
-});
+const connect = async () => {
+  try {
+    await mongoose.connect(uri);
+    console.log('Database connected');
+  } catch (error) {
+    console.log('MongoDB error', error);
+  }
+};
+connect();
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+const server = app.listen(port, host, () => {
+  console.log(`Node server is listening to ${server.address().port}`)
 });
