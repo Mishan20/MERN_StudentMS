@@ -26,19 +26,21 @@ const addUser = (req, res, next) => {
 };
 
 const updateUser = (req, res, next) => {
-  const { id, name } = req.body;
-  User.updateOne({ _id: id }, { $set: { name: name } })
+  const id = req.body.id;
+  const name = req.body.name;
+  User.updateOne({ id: id }, { $set: { name: name } })
     .then((response) => {
       res.json({ response });
     })
     .catch((err) => {
       res.json({ message: err });
     });
-};
+}
+
 
 const deleteUser = (req, res, next) => {
   const id = req.body.id;
-  User.deleteOne({ _id: id })
+  User.deleteOne({ id: id })
     .then((response) => {
       res.json({ response });
     })
@@ -47,4 +49,6 @@ const deleteUser = (req, res, next) => {
     });
 };
 exports.getUsers = getUsers;
-exports.getUserById = getUserById;
+exports.addUser = addUser;
+exports.updateUser = updateUser;
+exports.deleteUser = deleteUser;

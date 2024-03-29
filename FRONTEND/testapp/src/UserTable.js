@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-const UserTable = ({ rows }) => {
+const UserTable = ({ rows,selectedUser  }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -33,7 +33,9 @@ const UserTable = ({ rows }) => {
                 <TableCell>
                   <Button
                     sx={{ margin: "0px 10px" }}
-                    onClick={() => {}}
+                    onClick={() => {
+                      selectedUser({id: row.id, name: row.name});
+                    }}
                     variant="contained"
                   >
                     Update
