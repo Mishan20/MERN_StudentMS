@@ -8,8 +8,9 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { useEffect } from "react";
 
-const UserTable = ({ rows,selectedUser  }) => {
+const UserTable = ({ rows,selectedUser, deleteUser  }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -42,7 +43,7 @@ const UserTable = ({ rows,selectedUser  }) => {
                   </Button>
                   <Button
                     sx={{ margin: "0px 10px" }}
-                    onClick={() => {}}
+                    onClick={() => deleteUser({id: row.id})}
                     variant="contained"
                   >
                     Delete
